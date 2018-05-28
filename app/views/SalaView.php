@@ -1,0 +1,43 @@
+        <div class="conteiner-fluid">
+            <div class="col-xs-12 col-md-offset-2" style="padding:10px">
+                <form action="/asr_teknisa/sala/" method="post">
+                    <?php foreach (json_decode($dados, true)['salas'] as $salaDecoded):
+                        $sala = SalaEntity::criarViaJson($salaDecoded);?>
+                    <input type="hidden" name="id" value="<?php echo $sala->__get('id') ?>">
+                    <button type="submit" class="list-group-item list-group-item-action">  
+                        <table class="item-table">
+                            <tr>
+                                <td>
+                                    <p><b>Nome:</b></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $sala->__get('nome') ?></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><b>Status:</b></p>
+                                </td>
+                                <td>
+                                    <p style="color: <?php echo $sala->__get('status') == StatusSala::DISPONIVEL ? 'green': 'red' ?>"> <?php echo $sala->__get('status') ?> </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <table class="item-table" style="width: 100%">
+                                        <tr>
+                                            <td><i class="material-icons md-18" style="color: <?php echo $sala->__get('temProjetor') ? 'green' : 'red' ?>">videocam</i></td>
+                                            <td><i class="material-icons md-18" style="color: green">event_seat</i><b style="color: green"> <?php echo $sala->__get('qtdCadeiras') ?></b></td>
+                                            <td><i class="material-icons md-18" style="color: <?php echo $sala->__get('temVideoConferencia') ? 'green' : 'red' ?>">contact_phone</i></td>
+                                            <td><i class="material-icons md-18" style="color: <?php echo $sala->__get('temComputador') ? 'green' : 'red' ?>">desktop_mac</i></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                    <?php endforeach; ?>
+                </form>
+            </div>
+        </div>
+    

@@ -1,5 +1,5 @@
 # ASR - Agendamento de Sala de Reunião
-Aplicativo web para reservar salas de reunião, desenvolvido para um processo seletivo na empresa Teknisa. 
+Aplicativo web para reservar salas de reunião, desenvolvido para um processo seletivo na empresa Teknisa. Foi construído um framework com o intuito de reforçar os conhecimentos sobre o padrão MVC, e a linguagem PHP.
 
 ## Tecnologias
 - **PHP** - back-end;
